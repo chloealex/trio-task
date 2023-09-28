@@ -1,4 +1,8 @@
-stages {
+pipeline {
+
+    agent any
+
+  stages {
     stage('Build') {
       steps {
         sh 'docker build -t mysql:latest ./db'
@@ -24,4 +28,5 @@ stages {
       sh 'docker logout'
     }
   }
+}
 
