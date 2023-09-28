@@ -1,6 +1,4 @@
-pipeline {
-
-  stages {
+stages {
     stage('Build') {
       steps {
         sh 'docker build -t mysql:latest ./db'
@@ -26,4 +24,4 @@ pipeline {
       sh 'docker logout'
     }
   }
-}
+
