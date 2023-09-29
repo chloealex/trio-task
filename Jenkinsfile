@@ -17,6 +17,13 @@ pipeline {
         sh 'docker push chloealex/nginx'
       }
     }
+     stage('Run') {
+      steps {
+        sh 'docker run -d --name mysql chloealex/mysql:latest'
+        sh 'docker run -d --name flask-app chloealex/flask-app:latest'
+        sh 'docker run -d -p 80:80 --name nginx chloealex/nginx:latest'
+      }
+    }
 
   }
 }
